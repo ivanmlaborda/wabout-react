@@ -1,42 +1,77 @@
 import React, { Component } from 'react';
 
-class NavBar extends Component {
+export default class NavBar extends Component {
+
+  constructor (props) {
+    super(props)
+    this.state = { shownCollapsible: false, isActive: '' }
+  }
+
+  _handleClickNavBurger = () => {
+    console.log('NavBar Burger Clicked')
+
+    this.state.shownCollapsible
+    ? this.setState({ shownCollapsible: !this.state.shownCollapsible, isActive: '' })
+    : this.setState({ shownCollapsible: !this.state.shownCollapsible, isActive: 'is-active' })
+  }
+
   render() {
+
     return (
-      <nav className="navbar" aria-label="main navigation">
-        <div className="navbar-brand">
-          <a className="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
-          </a>
-          <div className="navbar-item">
-            <div className="field is-grouped">
-              <p className="control">
-                <a className="button">
-                  <span className="icon">
-                    <i className="fa fa-twitter" aria-hidden="true"></i>
-                  </span>
-                  <span>Tweet</span>
-                </a>
-              </p>
-              <p className="control">
-                <a className="button is-primary">
-                  <span className="icon">
-                    <i className="fa fa-download" aria-hidden="true"></i>
-                  </span>
-                  <span>Download</span>
-                </a>
-              </p>
+      <div className="NavBar-wrapper">
+        <nav className="navbar is-dark is-fixed-top">
+          <div className="navbar-brand">
+            <a className="navbar-item NavBar-logo">
+              Wabout
+            </a>
+            <div
+               className={"navbar-burger burger " + this.state.isActive}
+               data-target="NavBar-menu"
+               onClick={this._handleClickNavBurger}
+               >
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           </div>
-          <div className="navbar-burger">
-            <span></span>
-            <span></span>
-            <span></span>
+
+          <div
+            id="NavBar-menu"
+            className={"navbar-menu " + this.state.isActive}
+            >
+            <div className="navbar-start">
+              <a className="navbar-item" href="https://bulma.io/">
+                Home
+              </a>
+              <a className="navbar-item" href="https://bulma.io/">
+                Help
+              </a>
+              <a className="navbar-item" href="https://bulma.io/">
+                About
+              </a>
+            </div>
+            <div className="navbar-end">
+              <div className="navbar-item">
+                <div className="field is-grouped">
+                  <p className="control">
+                    <a className="button is-light">
+                      <span className="icon">
+                        <i className="fa fa-sign-in"></i>
+                      </span>
+                      <span>Login</span>
+                    </a>
+                  </p>
+                  <p className="control">
+                    <a className="button is-light">
+                      <span>Register</span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     );
   }
 }
-
-export default NavBar;
