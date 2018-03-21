@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar/NavBar'
+import Footer from './Footer/Footer'
 import 'bulma/css/bulma.css'
 
 class App extends Component {
@@ -7,6 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
+        <Footer />
       </div>
     );
   }
