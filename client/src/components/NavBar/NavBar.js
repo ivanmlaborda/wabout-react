@@ -21,9 +21,9 @@ export default class NavBar extends Component {
       <div className="NavBar-wrapper">
         <nav className="navbar is-dark is-fixed-top">
           <div className="navbar-brand">
-            <a className="navbar-item NavBar-logo">
+            <p className="navbar-item NavBar-logo">
               Wabout
-            </a>
+            </p>
             <div
                className={"navbar-burger burger " + this.state.isActive}
                data-target="NavBar-menu"
@@ -52,7 +52,7 @@ export default class NavBar extends Component {
             </div>
             <div className="navbar-end">
               <div className="navbar-item">
-                <div className="field is-grouped">
+                <div className="field is-grouped is-pulled-right">
                   <p className="control">
                     <a className="button is-light">
                       <span className="icon">
