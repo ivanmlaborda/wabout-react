@@ -1,4 +1,15 @@
 /* _-_-_- layout/FOOTER -_-_-_ */
 .Footer-wrapper {
-  margin-top: 400px;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  height: 44px;
+  width: 100%;
+  background-color: $mineshaft;
+  color: $wildsand;
+  align-items: center;justify-content: center;
+
+  p {
+    font-size: $size-s;
+  }
 }
